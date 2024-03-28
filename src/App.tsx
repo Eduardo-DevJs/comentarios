@@ -8,6 +8,7 @@ type ComentsProps = {
   id: string;
   author: string;
   coment: string;
+  date: Date;
 };
 
 const schema = yup
@@ -37,6 +38,7 @@ export default function App() {
         id: uuidv4(),
         author: data.author,
         coment: data.coment,
+        date: new Date(),
       },
     ]);
 
@@ -90,6 +92,8 @@ export default function App() {
               <span className="text-zinc-500 font-light">Autor</span>
               <h2 className="text-2xl">{coment.author}</h2>
             </div>
+            <p className="font-normal text-xs italic">Postado em: {coment.date.getFullYear()}</p>
+
             <p className="mt-2 leading-normal text-slate-600">
               {coment.coment}
             </p>
